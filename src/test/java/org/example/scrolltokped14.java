@@ -32,7 +32,7 @@ public class scrolltokped14 {
             js = (JavascriptExecutor) driver;
             driver.get(baseURL);
 //            driver.manage().window().maximize();
-//            js.executeScript("window.scrollBy(0,20000)");
+            js.executeScript("window.scrollBy(0,20000)");
             Thread.sleep(6000);
         }
 

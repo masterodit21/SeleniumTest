@@ -44,6 +44,6 @@ public class TokPed {
                 }
             }
             assertTrue(hargaTampung > 0);
-            driver.quit();
+            driver.close();
             }
     }
