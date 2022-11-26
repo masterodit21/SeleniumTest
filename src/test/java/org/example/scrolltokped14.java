@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class scrolltokped14 {
-        private String baseURL = "https://www.tokopedia.com/search?st=product&q=drone&srp_component_id=02.01.00.00&srp_page_id=&srp_page_title=&navsource=";
+        private String baseURL = "https://www.tokopedia.com/search?st=product&q=sarung%20bhs&srp_component_id=02.01.00.00&srp_page_id=&srp_page_title=&navsource=";
         private WebDriver driver;
         private WebDriverWait wait;
         private JavascriptExecutor js;
@@ -38,12 +38,11 @@ public class scrolltokped14 {
         @Test
         public void priceTest() throws InterruptedException {
 
-            String path = "div[data-testid=\"spnSRPProdPrice\"]";
             int sum = 0;
 
             driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS) ;
 
-            List<WebElement> elements = driver.findElements(By.xpath(path));
+            List<WebElement> elements = driver.findElements(By.xpath("//div[@data-testid='spnSRPProdPrice']"));
 
             for (WebElement elem: elements) {
                 String a = elem.getText().replaceAll("\\D+", "");

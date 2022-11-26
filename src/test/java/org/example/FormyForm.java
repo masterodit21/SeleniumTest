@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-import java.util.List;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class FormyForm {
     @Test
@@ -18,48 +18,41 @@ public class FormyForm {
         WebDriver driver = new EdgeDriver();
         driver.get(baseURL);
 
-        WebElement firstname = driver.findElement(By.id("first-name"));
-        firstname.sendKeys("Tedy");
+        driver.findElement(By.id("first-name")).sendKeys("Tedy");
         Thread.sleep(1500);
-        WebElement lastname = driver.findElement(By.id("last-name"));
-        lastname.sendKeys("Aditia");
+
+        driver.findElement(By.id("last-name")).sendKeys("Aditia");
         Thread.sleep(1500);
-        WebElement job = driver.findElement(By.id("job-title"));
-        job.sendKeys("Staff IT Programmer");
+
+        driver.findElement(By.id("job-title")).sendKeys("Staff IT Programmer");
         Thread.sleep(1500);
-        WebElement radio = driver.findElement(By.id("radio-button-1"));
-        radio.click();
+
+        driver.findElement(By.id("radio-button-1")).click();
         Thread.sleep(600);
-        WebElement radio2 = driver.findElement(By.id("radio-button-2"));
-        radio2.click();
+
+        driver.findElement(By.id("radio-button-2")).click();
         Thread.sleep(600);
-        WebElement checkbox = driver.findElement(By.id("checkbox-1"));
-        checkbox.click();
+
+        driver.findElement(By.id("checkbox-1")).click();
         Thread.sleep(600);
 
         Select menu = new Select(driver.findElement(By.id("select-menu")));
         menu.selectByValue("1");
         Thread.sleep(600);
 
-        WebElement selectDate = driver.findElement(By.id("datepicker"));
-        selectDate.click();
-        Thread.sleep(2000);
-        List<WebElement> dates = driver.findElements(By.className("day"));
+        driver.findElement(By.id("datepicker")).sendKeys("12/12/2022");
+        Thread.sleep(600);
 
-        int count = driver.findElements(By.className("day")).size();
-
-        for(int i=0;i<count;i++){
-            String text=driver.findElements(By.className("day")).get(i).getText();
-            if(text.equalsIgnoreCase("25")){
-                driver.findElements(By.className("day")).get(i).click();
-                break;
-            }
-        }
-
-        Thread.sleep(1500);
 
         driver.findElement(By.xpath("//a[@role='button']")).click();
 
+
+//        String expectedText = "The form was successfully submitted!";
+//        WebElement actualtext = driver.findElement(By.className("alert alert-success"));
+//        assertEquals(actualtext, expectedText);
+//
+//        assertEquals("The form was successfully submitted!", driver.findElement(By.cssSelector("#alert alert-success")));
+//
 //        driver.close();
     }
 }

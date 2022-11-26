@@ -33,24 +33,20 @@ public class FormyElement {
         Thread.sleep(1500);
 
         driver.findElement(By.cssSelector("body > div > form > div:nth-child(2) > div > div > div > button:nth-child(1)")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
 
         driver.findElement(By.cssSelector("body > div > form > div:nth-child(2) > div > div > div > button:nth-child(2)")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
 
         driver.findElement(By.cssSelector("body > div > form > div:nth-child(2) > div > div > div > button:nth-child(3)")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         driver.findElement(By.cssSelector("body > div > form > div:nth-child(3) > div > div > div > button:nth-child(1)")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         driver.findElement(By.cssSelector("body > div > form > div:nth-child(3) > div > div > div > button:nth-child(2)")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         driver.findElement(By.cssSelector("#btnGroupDrop1")).click();
-        Thread.sleep(2000);
+        Thread.sleep(1500);
 
-
-//        driver.findElement(By.xpath("//button[@class='btn-group']")).click();
-//        Thread.sleep(1500);
-
-//        driver.close();
+        driver.close();
     }
 }
