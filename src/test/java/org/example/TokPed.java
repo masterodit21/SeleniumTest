@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -42,7 +43,7 @@ public class TokPed {
                     state = true;
                 }
             }
-            assertTrue(hargaTampung > 0);
+            Assert.assertTrue(hargaTampung > 0);
             driver.quit();
             }
     }
