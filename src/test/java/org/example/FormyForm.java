@@ -7,11 +7,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class FormyForm {
     @Test
     public void input() throws InterruptedException {
+        String expectText = "The form was successfully submitted!";
 
         System.setProperty("webdriver.edge.driver", "D:\\webdriver\\msedgedriver.exe");
         String baseURL = "https://formy-project.herokuapp.com/form";
@@ -19,13 +21,13 @@ public class FormyForm {
         driver.get(baseURL);
 
         driver.findElement(By.id("first-name")).sendKeys("Tedy");
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 
         driver.findElement(By.id("last-name")).sendKeys("Aditia");
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 
         driver.findElement(By.id("job-title")).sendKeys("Staff IT Programmer");
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 
         driver.findElement(By.id("radio-button-1")).click();
         Thread.sleep(600);
@@ -43,16 +45,18 @@ public class FormyForm {
         driver.findElement(By.id("datepicker")).sendKeys("12/12/2022");
         Thread.sleep(600);
 
-
         driver.findElement(By.xpath("//a[@role='button']")).click();
+        Thread.sleep(1000);
 
+        WebElement actualText = driver.findElement(By.xpath("//div[@role='alert']"));
+        assertEquals(actualText.getText(), expectText);
 
-//        String expectedText = "The form was successfully submitted!";
-//        WebElement actualtext = driver.findElement(By.className("alert alert-success"));
-//        assertEquals(actualtext, expectedText);
-//
-//        assertEquals("The form was successfully submitted!", driver.findElement(By.cssSelector("#alert alert-success")));
-//
-//        driver.close();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        WebElement resultText = driver.findElement(By.xpath("//div[@role='alert']"));
+//        String expecttext = "The form was successfully submitted!";
+//        String actualtext = resultText.getText().toString();
+//        assertEquals(actualtext,expecttext);
+
+        driver.close();
     }
 }

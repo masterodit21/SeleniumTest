@@ -20,6 +20,7 @@ public class scrolltokped14 {
         private WebDriver driver;
         private WebDriverWait wait;
         private JavascriptExecutor js;
+        int limitScroll = 100;
 
 
         @BeforeSuite
@@ -31,12 +32,23 @@ public class scrolltokped14 {
             js = (JavascriptExecutor) driver;
             driver.get(baseURL);
             driver.manage().window().maximize();
-            js.executeScript("window.scrollBy(0,20000)");
+//            js.executeScript("window.scrollBy(0,20000)");
             Thread.sleep(6000);
+        }
+
+        public void scroll() {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            for (int i = 0; i <= limitScroll; i++) {
+                js.executeScript("window.scrollBy(0, " + i + ")");
+            }
         }
 
         @Test
         public void priceTest() throws InterruptedException {
+
+            this.scroll();
+
+            JavascriptExecutor js = (JavascriptExecutor) driver;
 
             int sum = 0;
 
@@ -54,7 +66,7 @@ public class scrolltokped14 {
             System.out.println(elements.size());
             assertTrue(sum > 0);
 
-//            driver.quit();
+            driver.quit();
         }
     }
 
