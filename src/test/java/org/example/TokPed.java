@@ -43,7 +43,7 @@ public class TokPed {
                     state = true;
                 }
             }
-            Assert.assertTrue(hargaTampung > 0);
+            assertTrue(hargaTampung > 0);
             driver.quit();
             }
     }

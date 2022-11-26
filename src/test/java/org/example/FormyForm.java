@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertEquals;
 
+@Test
 public class FormyForm {
-    @Test
     public void input() throws InterruptedException {
-        String expectText = "The form was successfully submitted!";
+
 
         System.setProperty("webdriver.edge.driver", "D:\\webdriver\\msedgedriver.exe");
         String baseURL = "https://formy-project.herokuapp.com/form";
@@ -48,6 +48,7 @@ public class FormyForm {
         driver.findElement(By.xpath("//a[@role='button']")).click();
         Thread.sleep(1000);
 
+        String expectText = "The form was successfully submitted!";
         WebElement actualText = driver.findElement(By.xpath("//div[@role='alert']"));
         assertEquals(actualText.getText(), expectText);
 
